@@ -48,9 +48,6 @@ configuration:
     enableSiteMap: true
     enableRSS: true
 plugins:
-  - source: "./plugins/collapsible-sidebars"
-    enabled: true
-    order: 5
   - source: "./plugins/reader-mode-default"
     enabled: true
     order: 6
@@ -264,7 +261,6 @@ layout:
         left: []
         right: []
     content:
-      template: collapsible-sidebars
       # Keep the table of contents in the right sidebar; drop the global graph.
       exclude:
         - graph
