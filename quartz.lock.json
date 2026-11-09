@@ -3,9 +3,9 @@
   "plugins": {
     "reader-mode-default": {
       "source": "./plugins/reader-mode-default",
-      "resolved": "/var/home/mae/Documents/Dumpster Vault/plugins/reader-mode-default",
+      "resolved": "plugins/reader-mode-default",
       "commit": "local",
-      "installedAt": "2026-11-09T18:38:21.785Z"
+      "installedAt": "2026-11-09T19:13:56.315Z"
     }
   }
 }
