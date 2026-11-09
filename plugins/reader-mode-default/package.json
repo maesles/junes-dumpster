@@ -1,0 +1,32 @@
+{
+  "name": "reader-mode-default",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Turns Quartz reader mode on by default and remembers the visitor's choice.",
+  "main": "dist/index.js",
+  "exports": {
+    ".": "./dist/index.js",
+    "./components": "./dist/components.js"
+  },
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "peerDependencies": {
+    "preact": "*"
+  },
+  "quartz": {
+    "name": "reader-mode-default",
+    "displayName": "Reader mode default",
+    "description": "Starts with reader mode on; the choice is remembered per visitor.",
+    "category": "component",
+    "components": {
+      "ReaderModeDefault": {
+        "displayName": "Reader mode default",
+        "description": "Turns reader mode on by default; the choice is remembered.",
+        "defaultPosition": "afterBody",
+        "defaultPriority": 998
+      }
+    }
+  }
+}

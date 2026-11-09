@@ -1,0 +1,38 @@
+{
+  "name": "collapsible-sidebars",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Quartz page frame with collapsible left and right sidebars.",
+  "main": "dist/index.js",
+  "exports": {
+    ".": "./dist/index.js",
+    "./frames": "./dist/frames.js",
+    "./components": "./dist/components.js"
+  },
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "peerDependencies": {
+    "preact": "*"
+  },
+  "quartz": {
+    "name": "collapsible-sidebars",
+    "displayName": "Collapsible sidebars",
+    "description": "Page frame with toggles that collapse the left and right sidebars.",
+    "category": "component",
+    "frames": {
+      "CollapsibleSidebarsFrame": {
+        "exportName": "CollapsibleSidebarsFrame"
+      }
+    },
+    "components": {
+      "SidebarToggleScript": {
+        "displayName": "Sidebar toggle script",
+        "description": "Wires up the collapsible-sidebar toggles.",
+        "defaultPosition": "afterBody",
+        "defaultPriority": 999
+      }
+    }
+  }
+}

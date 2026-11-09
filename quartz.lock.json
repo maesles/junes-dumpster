@@ -1,0 +1,17 @@
+{
+  "version": "1.0.0",
+  "plugins": {
+    "collapsible-sidebars": {
+      "source": "./plugins/collapsible-sidebars",
+      "resolved": "/var/home/mae/Documents/Dumpster Vault/plugins/collapsible-sidebars",
+      "commit": "local",
+      "installedAt": "2026-11-09T18:19:32.144Z"
+    },
+    "reader-mode-default": {
+      "source": "./plugins/reader-mode-default",
+      "resolved": "/var/home/mae/Documents/Dumpster Vault/plugins/reader-mode-default",
+      "commit": "local",
+      "installedAt": "2026-11-09T18:38:21.785Z"
+    }
+  }
+}

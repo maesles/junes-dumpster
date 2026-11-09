@@ -1,9 +1,9 @@
 ---
 title: Welcome
-description: June's Cool Vault — things I want to share.
+description: june’s dumpster — things I want to share.
 ---
 
-# Welcome to June's Cool Vault
+# Welcome to june’s dumpster
 
 This is where I keep the notes I'm happy to share.
 

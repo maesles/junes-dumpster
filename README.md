@@ -1,4 +1,4 @@
-# June's Cool Vault
+# june’s dumpster
 
 A [Quartz v5](https://quartz.jzhao.xyz) site, published at **https://vault.dumpster.town**.
 
@@ -68,6 +68,51 @@ Everything lives in `quartz.config.yaml`:
 - `plugins:` — the full plugin list, with layout positions in `layout:`.
 
 Styling overrides go in `quartz/styles/custom.scss`.
+
+## Collapsible sidebars
+
+Content pages use a custom page frame (`plugins/collapsible-sidebars`) instead of Quartz's
+built-in one. Each sidebar has a chevron button that collapses it to zero width; a thin rail
+at the screen edge re-opens it. The choice is remembered per sidebar in `localStorage`.
+
+```
+plugins/collapsible-sidebars/
+  frames.js       the frame: sidebar markup, toggle buttons, rails
+  components.js   click handling (afterDOMLoaded) + storage
+  styles.js       the grid-track override and toggle styling
+  build.mjs       copies sources to dist/ (Quartz's installer expects dist/)
+```
+
+It is registered in `quartz.config.yaml`:
+
+```yaml
+plugins:
+  - source: "./plugins/collapsible-sidebars"   # local plugin
+```
+
+and selected per page type:
+
+```yaml
+layout:
+  byPageType:
+    content:
+      template: collapsible-sidebars
+```
+
+Why a local plugin rather than just CSS: emptying a layout slot with `positions: { right: [] }`
+clears the sidebar's contents but the grid still reserves a fixed-width column, so the space is
+never reclaimed. A frame can change the grid; Quartz only lets `frame.css` ship styling, so the
+click handling lives in the companion component, where `afterDOMLoaded` is collected.
+
+After changing anything in `plugins/`, reinstall and rebuild:
+
+```bash
+rm -rf .quartz/plugins/collapsible-sidebars
+npx quartz plugin install
+npx quartz build
+```
+
+Tag, folder, 404 and canvas pages keep Quartz's default frame.
 
 ## One-time GitHub + DNS setup
 
