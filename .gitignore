@@ -1,0 +1,18 @@
+# Quartz build output and caches
+public
+node_modules
+.quartz-cache
+.quartz
+tsconfig.tsbuildinfo
+prof
+.turbo
+
+# Dependency / environment noise
+.DS_Store
+
+# Obsidian: keep settings and plugins if you like, but never commit
+# per-machine layout state or trashed files.
+content/.obsidian/workspace.json
+content/.obsidian/workspace-mobile.json
+content/.obsidian/cache
+content/.trash

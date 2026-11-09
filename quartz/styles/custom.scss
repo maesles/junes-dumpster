@@ -1,0 +1,23 @@
+@use "./variables.scss" as *;
+
+// put your custom CSS here!
+
+// Wikilinks that point at notes which don't exist are rendered as plain-looking
+// text instead of dead links. Pairs with `disableBrokenWikilinks: true` in
+// quartz.config.yaml.
+//
+// Quartz v5 marks any internal link whose target isn't a *source file* as
+// broken, which also catches links to generated pages (tag and folder pages).
+// Those are real, working pages, so leave them alone.
+a.internal.broken:not(.tag-link):not([href*="/tags/"]):not([data-slug^="tags/"]):not([data-slug^="static/"]) {
+  color: inherit;
+  background-color: transparent;
+  padding: 0;
+  cursor: text;
+  text-decoration: none;
+
+  &:hover {
+    color: inherit;
+    opacity: 1;
+  }
+}

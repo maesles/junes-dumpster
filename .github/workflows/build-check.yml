@@ -1,0 +1,44 @@
+name: Build check
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: .node-version
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Quartz plugins
+        run: npx quartz plugin install
+
+      - name: Build site
+        run: npx quartz build
+
+      - name: Verify excluded content stays out of the build
+        run: |
+          set -e
+          for path in public/_drafts public/.obsidian; do
+            if [ -e "$path" ]; then
+              echo "::error::$path should not exist in the build output"
+              exit 1
+            fi
+          done
+          if grep -rIl "should never appear on the site" public; then
+            echo "::error::Content from _drafts/ leaked into the build"
+            exit 1
+          fi
